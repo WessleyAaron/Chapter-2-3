@@ -14,6 +14,7 @@ int main()
 	double total_Price;
 
 	int nights_Staying;
+	int night_Cost;
 	int phone_Charge_Minutes;
 	std::string phone_Charge;
 	std::string room_Service;
@@ -24,6 +25,8 @@ int main()
 	std::cout << "Would you like one time room service?" << std::endl;
 	std::cin >> room_Service;
 
+	night_Cost = nights_Staying * per_Night_Rate;
+
 	if (room_Service == "y")
 	{
 		total_Price = (total_Price + one_Time_Room_Service);
@@ -31,7 +34,7 @@ int main()
 
 	else 
 	{
-		total_Price = 0;
+		one_Time_Room_Service = 0;
 	}
 	
 	std::cout << "Would you like to charge your phone once for $0.25 per minute?" << std::endl;
@@ -48,7 +51,10 @@ int main()
 		phone_Charge_Minutes = 0;
 	}
 
-	total_Price = total_Price + //finish this line
+	total_Price = phone_Charge_Minutes + one_Time_Room_Service + night_Cost;
+
+	std::cout << "This will cost you $" << total_Price << std::endl;
+
 
 	system("pause");
 	return 0;
